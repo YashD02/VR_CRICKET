@@ -10,7 +10,7 @@ public class CricketBallTrajectory : MonoBehaviour
     public float spinForce = 5f;
     public float swingForce = 5f;
     public Transform pitchPoint;
-    public float maxDeviationAngle = 7f; // Maximum angle in degrees for deviation
+    public float maxDeviationAngle = 4f; // Maximum angle in degrees for deviation
 
     private Rigidbody rb;
     private Vector3 initialPosition;
@@ -49,7 +49,7 @@ public class CricketBallTrajectory : MonoBehaviour
         direction = Quaternion.LookRotation(direction + randomDeviation) * Vector3.forward;
 
         // Set the velocity with the adjusted direction and speed
-        rb.velocity = direction * speed;
+        rb.velocity = direction * speed * 2;
 
         // Apply additional forces based on the bowling type
         switch (bowlingType)
