@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CricketBallTrajectory : MonoBehaviour
+public class CricketBallTraject : MonoBehaviour
 {
     public enum BowlingType { LegSpin, OffSpin, InSwing, OutSwing }
 
@@ -56,15 +56,19 @@ public class CricketBallTrajectory : MonoBehaviour
         {
             case BowlingType.LegSpin:
                 rb.AddTorque(Vector3.up * spinForce, ForceMode.Impulse);
+                rb.AddForce(Vector3.right * swingForce, ForceMode.Impulse);
                 break;
             case BowlingType.OffSpin:
                 rb.AddTorque(Vector3.down * spinForce, ForceMode.Impulse);
+                rb.AddForce(Vector3.left * swingForce, ForceMode.Impulse);
                 break;
             case BowlingType.InSwing:
-                rb.AddForce(Vector3.right * swingForce, ForceMode.Impulse);
+                rb.AddTorque(Vector3.forward * spinForce, ForceMode.Impulse);
+                rb.AddForce(Vector3.left * swingForce, ForceMode.Impulse);
                 break;
             case BowlingType.OutSwing:
-                rb.AddForce(Vector3.left * swingForce, ForceMode.Impulse);
+                rb.AddTorque(Vector3.forward * spinForce, ForceMode.Impulse);
+                rb.AddForce(Vector3.right * swingForce, ForceMode.Impulse);
                 break;
         }
     }

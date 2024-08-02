@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BailResetOnChange : MonoBehaviour
 {
-    public float resetTime = 5.0f; // Time in seconds before the bails reset
+    public float resetTime = 4.0f; // Time in seconds before the bails reset
 
     private Vector3 originalPosition;
     private Quaternion originalRotation;
@@ -20,7 +20,7 @@ public class BailResetOnChange : MonoBehaviour
     void Update()
     {
         // Check if the bail's position has changed significantly
-        if (Vector3.Distance(transform.position, originalPosition) > 5f)
+        if (Vector3.Distance(transform.position, originalPosition) > 1f)
         {
             // Start the reset coroutine if the bail has moved
             StartCoroutine(ResetBailAfterTime());

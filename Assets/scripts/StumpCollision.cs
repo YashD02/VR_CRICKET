@@ -5,8 +5,8 @@ public class StumpCollision : MonoBehaviour
 {
     private Vector3 initialPosition;
     private Quaternion initialRotation;
-    public float resetDelay = 6f; // Time after which the stumps reset
-    public float forceMultiplier = 2.0f; // Multiplier to increase falling speed
+    public float resetDelay = 4f; // Time after which the stumps reset
+    public float forceMultiplier = 1.8f; // Multiplier to increase falling speed
     public float angularDrag = 0.05f; // Reduce angular drag for more realistic falling
 
     void Start()
